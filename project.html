@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      html {
+        height: 100vh;
+        width: 100vw;
+        background-color: aliceblue;
+      }
+      * {
+        margin: 0;
+        color: white;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+      }
+      #main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+        justify-content: center;
+        align-items: center;
+      }
+      #navbar {
+        background-color: cadetblue;
+        display: flex;
+        flex-flow: row wrap;
+        height: 15vh;
+        width: 100vw;
+        align-items: center;
+        justify-content: space-between;
+        --status: open;
+      }
+      #logo {
+        height: 100%;
+        width: 15%;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+      }
+      #logo a img {
+        height: 100%;
+        width: 100%;
+      }
+      #sites {
+        height: 100%;
+        width: 75%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      ul {
+        list-style: none;
+        display: flex;
+      }
+      ul li {
+        margin: 15px;
+      }
+      li a {
+        text-decoration: none;
+        color: white;
+        padding: 15px;
+      }
+      ul li a:hover {
+        background-color: aliceblue;
+        color: cadetblue;
+        text-decoration: underline;
+      }
+      #close {
+        display: flex;
+        height: 100%;
+        width: 10%;
+        justify-content: center;
+        align-items: center;
+        font-size: large;
+      }
+      #close p {
+        cursor: pointer;
+        color: aliceblue;
+        padding: 5px 20px 5px 20px;
+        background-color: rgb(6, 24, 103);
+        border: 2px white solid;
+        border-radius: 10px;
+      }
+      #body {
+        /* border: 2px red solid; */
+        height: 85vh;
+        width: 100vw;
+        background: linear-gradient(135deg, black, gray);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* text-align: center; */
+      }
+      #social {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        /* border: 2px white solid; */
+        border-radius: 10px;
+        padding-top: 10px;
+        -webkit-user-select: none;
+      }
+      #social a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #social a img {
+        height: 50px;
+        width: 50px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      #social a:hover,
+      #social a img :hover {
+        background-color: cadetblue;
+        border-radius: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <nav id="navbar">
+        <div id="logo">
+          <a href="#"
+            ><img
+              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.iDYXq3As-rn3ms_zQwQ-6gHaDj%26pid%3DApi&f=1&ipt=5bff6f9b2524e5851499135e2db9fd1f95d1033ce23e89f47698904254d0e9d4&ipo=images"
+              alt="Name/Logo"
+          /></a>
+        </div>
+        <div id="sites">
+          <ul>
+            <li><a href="project.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div id="close"><p>x</p></div>
+      </nav>
+      <div id="body">
+        <div id="text">
+          <h1>Kshitijraj</h1>
+          <h2>I am a passionate Developer</h2>
+          <div id="social">
+            <a href="">
+              <img
+                src="img/5279111_network_fb_social media_facebook_facebook logo_icon.png"
+                alt=""
+              />
+            </a>
+            <a href=""
+              ><img
+                src="img/5279112_camera_instagram_social media_instagram logo_icon.png"
+                alt=""
+            /></a>
+            <a href=""
+              ><img
+                src="img/5279114_linkedin_network_social network_linkedin logo_icon.png"
+                alt=""
+            /></a>
+            <a href=""
+              ><img
+                src="img/5279123_tweet_twitter_twitter logo_icon.png"
+                alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const close = document.getElementById("close");
+      const body = document.getElementById("body");
+      close.addEventListener("click", () => {
+        const navbar = document.getElementById("navbar");
+        const sites = document.getElementById("sites");
+        var status = getComputedStyle(sites).getPropertyValue("--status");
+        if (status === "open") {
+          navbar.style.height = "5vh";
+          sites.style.display = "none";
+          sites.style.setProperty("--status", "close");
+          body.style.height = "95vh";
+        } else {
+          navbar.style.height = "15vh";
+          sites.style.display = "flex";
+          sites.style.setProperty("--status", "open");
+          body.style.height = "85vh";
+        }
+      });
+    </script>
+  </body>
+</html>
